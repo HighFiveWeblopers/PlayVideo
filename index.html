@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesion</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'><link rel="stylesheet" href="./iniciar.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+    <div class="myCard">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="myLeftCtn">
+                    <form class="myForm text-center needs-validation" onsubmit="return validateForm(this)" novalidate>
+                        <header>Crear nueva cuenta</header>
+                        <div class="form-group">
+                            <i class="fas fa-user"></i>
+                            <input class="myInput" type="text" placeholder="Nombre de Usuario" id="Username" required>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <i class="fas fa-envelope"></i>
+                            <input class="myInput" placeholder="Correo Electronico" type="text" id="email" required>
+                            <div class="invalid-feedback">Por favor! llena este campo..</div>
+                        </div>
+
+                        <div class="form-group">
+                            <i class="fas fa-lock"></i>
+                            <input class="myInput" type="password" id="password" placeholder="Contraseña" required>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input id="check_1" name="check_1" type="checkbox" required>
+                                <small> Acepto los términos y condiciones</small>
+                            </label>
+                            <div class="invalid-feedback">You must check the box.</div>
+                        </div>
+
+                        <input type="submit" class="butt" value="CREAR CUENTA" onclick="generateFile(event)">
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="myRightCtn">
+                    <div class="box">
+                        <header>HOLA MUNDO!</header>
+                        <p>Aquí podrás socializar y compartir tus videos más preferidos o crear contenido para el público mundial. 
+                            También puedes crear tu propia página de perfil para seguidores.</p>
+                        <input type="button" class="butt_out" value="Ver más"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function generateFile(event) {
+        event.preventDefault(); // Evita el envío del formulario automáticamente
+        
+        let username = document.getElementById("Username").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        
+        if (!username || !email || !password || !document.getElementById("check_1").checked) {
+            alert("Por favor, completa todos los campos y acepta los términos.");
+            return;
+        }
+        
+        let content = `NOMBRE DE USUARIO: ${username}\nCORREO: ${email}\nCONTRASEÑA: ${password}`;
+        let blob = new Blob([content], { type: "text/plain" });
+        let a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `${username}_datos_cuenta.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        
+        // Redireccionar a la página principal
+        window.location.href = "homeprincipal.html";
+    }
+</script>
+<!-- partial -->
+  <script  src="./sesion.js"></script>
+
+</body>
+</html>

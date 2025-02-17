@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheCypherEffect</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo para la ventana flotante */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+        
+        /* Estilo para el botón */
+        .follow-btn, .admin-btn {
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .follow-btn:hover, .admin-btn:hover {
+            background-color: #187bcd;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Encabezado del perfil -->
+        <header class="profile-header">
+            <div class="profile-picture">
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_lNGvM1dELDAfTDY0h6NlgzrkRs9ak72WjViRJ3f9hsSQ=s160-c-k-c0x00ffffff-no-rj" alt="Foto de perfil">
+            </div>
+            <div class="profile-info">
+                <h1 class="username">TheCypherEffect 
+                    <img src="https://static-00.iconduck.com/assets.00/verify-icon-2047x2048-ltq0o7xr.png" alt="Verificado" class="verified-badge">
+                </h1>
+                <div class="profile-stats">
+                    <div><strong>14,155</strong> Me Gusta</div>
+                    <div><strong id="followers">2,231</strong> seguidores</div>
+                    <div><strong>144</strong> seguidos</div>
+                </div>
+                <button class="follow-btn" id="followButton">Seguir</button>
+                <!-- Nuevo botón de entrar como admin -->
+                <button class="admin-btn" id="adminButton">Entrar como admin</button>
+            </div>
+        </header>
+
+        <!-- Bio del perfil -->
+        <section class="profile-bio">
+            <h2>Music And More!</h2>
+            <p>This channel is the music and tutorial's to make musics in instruments and more!</p>
+        </section>
+
+        <!-- Galería de publicaciones -->
+        <section class="profile-gallery">
+            <div class="gallery-item">
+                <img src="https://th.bing.com/th/id/R.149ea3b6ebe2f972973003d0a27e8546?rik=4QciSoAXcpjG3w&pid=ImgRaw&r=0" alt="Publicación 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://th.bing.com/th/id/R.5897b9a30f875b1db5872894c6a23e0b?rik=gbwV59Pal5tT%2fg&riu=http%3a%2f%2fcdn.wallpapersafari.com%2f81%2f86%2fThH58f.jpg&ehk=LQDQVlQR66iZcc9V5W%2fDYkHkOmXhTluIc5E2jKwZqUw%3d&risl=&pid=ImgRaw&r=0" alt="Publicación 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://th.bing.com/th/id/R.5fcf7faee0a432271fa3901108b13492?rik=DAheLN%2fj5zUe3Q&pid=ImgRaw&r=0" alt="Publicación 3">
+            </div>
+        </section>
+
+        <!-- Ventana flotante para el mensaje -->
+        <div class="toast" id="toast">Lo has seguido</div>
+    </div>
+
+    <script src="script.s"></script> <!-- Enlace al archivo de script -->
+    <script>
+        let followCount = 0; // Contador de seguimientos
+        const maxFollows = 0; // Máximo de seguimientos permitidos
+
+        document.getElementById("followButton").addEventListener("click", function() {
+            if (followCount < maxFollows) {
+                followCount++;
+                document.getElementById("followers").innerText = parseInt(document.getElementById("followers").innerText) + 1; // Actualiza el número de seguidores
+                this.innerText = "Siguiendo"; // Cambia el texto del botón
+                showToast("Lo has seguido"); // Muestra el mensaje flotante
+            } else {
+                showToast("Lo Has Seguido Correctamente /guardando información en el servidor (3.2KB)"); // Mensaje si ya alcanzó el máximo
+            }
+        });
+
+        // Redirección al panel de admin
+        document.getElementById("adminButton").addEventListener("click", function() {
+            window.location.href = "paneldonthug.html"; // Redirige a paneldonthug.html
+        });
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.innerText = message; // Cambia el mensaje del toast
+            toast.style.display = "block"; // Muestra el toast
+
+            // Oculta el toast después de 3 segundos
+            setTimeout(() => {
+                toast.style.display = "none";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

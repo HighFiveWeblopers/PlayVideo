@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- Usando styles.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMJ1Uu2P4k1H6gC1jfszjRIV+lHSts8QxE5jO" crossorigin="anonymous">
+    <title>PlayVideo</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#"><i class="fas fa-fire"></i> Tendencias</a></li>
+                <li><a href="#"><i class="fas fa-play-circle"></i> Suscripciones</a></li>
+                <li><a href="#"><i class="fas fa-video"></i> Biblioteca</a></li>
+                <li><a href="#"><i class="fas fa-clock"></i> Más tarde</a></li>
+                <li><a href="#"><i class="fas fa-thumbs-up"></i> Me gusta</a></li>
+                <li><a href="upload.html"><i class="fas fa-upload"></i> Subir video</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <!-- Barra de búsqueda -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar..." class="search-input"> <!-- ID agregado -->
+                <button class="search-button" onclick="searchVideo()">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-button">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button class="icon-button">
+                    <i class="fas fa-upload"></i>
+                </button>
+            </div>
+
+            <div class="videos">
+                <section class="video-section">
+                    <article class="video-container">
+                        <a href="watch01.html" class="thumbnail" data-duration="7:49:02"> <!-- Enlace actualizado -->
+                            <img class="thumbnail-image" src="https://i.ytimg.com/vi/beU5elde7gU/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBc1xu1bshSQod_0D5CqykBhqDipw" alt="Thumbnail del video" />
+                            <span class="duration">9:56</span>
+                        </a>
+                        <div class="video-bottom-section">
+                            <a href="#">
+                                <img class="channel-icon" src="https://yt3.googleusercontent.com/ntT1pPsqykldRF__1aHeWitNDwiu6aq-fm2WPU55CfrSeHKTn6PrYicFmZHuAsXQt6bkM30XLA=s160-c-k-c0x00ffffff-no-rj" alt="Icono del canal" />
+                            </a>
+                            <div class="video-details">
+                                <a href="#" class="video-title">CÓMO CONSEGUIR EL TITANIC en BROOKHAVEN!</a>
+                                <div class="video-channel-name-wrapper">
+                                    <a href="canal.html" class="video-channel-name">SoyNanndo</a>
+                                </div>
+                                <div class="video-metadata">
+                                    <span>45.1K Vistas</span>
+                                    ●
+                                    <span>Hace mas de 14h</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="video-container">
+                        <a href="watch3280dnas9q.html" class="thumbnail" data-duration="2:00"> <!-- Enlace actualizado para el nuevo video -->
+                            <img class="thumbnail-image" src="https://i.ytimg.com/vi/fYK5xX40zAY/hqdefault.jpg?sqp=-oaymwExCOADEI4CSFryq4qpAyMIARUAAIhCGAHwAQH4Af4JgALQBYoCDAgAEAEYfyA0KC4wDw==&rs=AOn4CLDPKviPWqKrxBlOgaR5fofAkHKT5Q" alt="Thumbnail del video Don't Hug Me" />
+                            <span class="duration">1:59</span>
+                        </a>
+                        <div class="video-bottom-section">
+                            <a href="#">
+                                <img class="channel-icon" src="https://yt3.googleusercontent.com/ytc/AIdro_lNGvM1dELDAfTDY0h6NlgzrkRs9ak72WjViRJ3f9hsSQ=s160-c-k-c0x00ffffff-no-rj" alt="Icono del canal" />
+                            </a>
+                            <div class="video-details">
+                                <a href="#" class="video-title"></a>SESSION</a>
+                                <div class="video-channel-name-wrapper">
+                                    <a href="@TheCypherEffect.html" class="video-channel-name">TheCypherEffect </a>
+                                </div>
+                                <div class="video-metadata">
+                                    <span>33.1K Vistas</span>
+                                    ●
+                                    <span>Hace mas de 6h</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Nuevo video agregado -->
+                    <article class="video-container">
+                        <a href="watch01737123q.html" class="thumbnail" data-duration="5:20">
+                            <img class="thumbnail-image" src="https://th.bing.com/th/id/R.00a4ad7ddf622a09c17aa51ed7033ab2?rik=ekRvsVaKoyUtyw&pid=ImgRaw&r=0" alt="Nuevo video Thumbnail" />
+                            <span class="duration">0:11</span>
+                        </a>
+                        <div class="video-bottom-section">
+                            <a href="#">
+                                <img class="channel-icon" src="https://cdn-icons-png.flaticon.com/512/7326/7326881.png" alt="Nuevo canal Icono" />
+                            </a>
+                            <div class="video-details">
+                                <a href="#" class="video-title">LOS ANGELES Y SU INCENDIO!</a>
+                                <div class="video-channel-name-wrapper">
+                                    <a href="@PlayVideo.html" class="video-channel-name">PlayVideo</a>
+                                </div>
+                                <div class="video-metadata">
+                                    <span>115.2K</span>
+                                    ●
+                                    <span>Hace mas de 14h</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <!-- Puedes agregar más videos aquí -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchVideo() {
+            var query = document.getElementById("searchInput").value.toLowerCase();
+            if (query === "lidiaxxxgg") {
+                window.location.href = "Lidiaxxxgg.html";
+            } else if (query === "jonathantadeo") {
+                window.location.href = "@JonathanTadeo.html";
+            } else {
+                alert("No se encontró ningún resultado para: " + query);
+            }
+        }
+    </script>
+</body>
+</html>

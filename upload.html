@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Upload File</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://public.codepenassets.com/css/reset-2.0.min.css">
+<link rel="stylesheet" href="./UploadMC.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="modal">
+    <div class="modal-header">
+        <div class="modal-logo">
+            <span class="logo-circle">
+                <!-- SVG ICON -->
+            </span>
+        </div>
+        <button class="btn-close">X</button>
+    </div>
+    <div class="modal-body">
+        <h2 class="modal-title">Subir Multimedia</h2>
+        <p class="modal-description">Solo videos de máximo 1080P</p>
+        <input type="file" id="fileInput" style="display: none;" />
+        <button class="upload-area" onclick="document.getElementById('fileInput').click();">
+            <span class="upload-area-title">Soltar Archivos y subirlos.</span>
+            <span class="upload-area-description">
+                O alternativamente puedes hacer <br/><strong id="clickHere">Click Aquí</strong>
+            </span>
+        </button>
+        <div id="progressContainer" style="display: none; margin-top: 10px;">
+            <progress id="uploadProgress" value="0" max="100" style="width: 100%;"></progress>
+            <p id="progressText">0%</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn-secondary">Cancel</button>
+        <button class="btn-primary" id="uploadBtn" disabled>Upload File</button>
+    </div>
+</div>
+
+<script>
+    const fileInput = document.getElementById('fileInput');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const modalTitle = document.querySelector('.modal-title');
+    const progressContainer = document.getElementById('progressContainer');
+    const progressBar = document.getElementById('uploadProgress');
+    const progressText = document.getElementById('progressText');
+
+    let selectedFile;
+
+    fileInput.addEventListener('change', (event) => {
+        selectedFile = event.target.files[0];
+        if (selectedFile) {
+            modalTitle.textContent = selectedFile.name;
+            uploadBtn.removeAttribute('disabled');
+        }
+    });
+
+    uploadBtn.addEventListener('click', () => {
+        if (!selectedFile) return;
+        
+        const fileSizeMB = selectedFile.size / (1024 * 1024);
+        const uploadSpeed = 1; // 15MB/s
+        const totalTime = fileSizeMB / uploadSpeed * 1000; // Convertir a milisegundos
+        let uploaded = 0;
+        
+        progressContainer.style.display = 'block';
+        progressBar.value = 0;
+        progressText.textContent = '0%';
+        
+        const interval = setInterval(() => {
+            uploaded += uploadSpeed;
+            const percentage = Math.min((uploaded / fileSizeMB) * 100, 100);
+            progressBar.value = percentage;
+            progressText.textContent = percentage.toFixed(0) + '%';
+            
+            if (percentage >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    alert('Archivo subido exitosamente.');
+                }, 500);
+            }
+        }, totalTime / 100);
+    });
+</script>
+<!-- partial -->
+  
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayVideo - Panel de Control</title>
+    <link rel="stylesheet" href="edit.css">
+</head>
+<body>
+    <div class="panel-container">
+        <!-- Barra lateral -->
+        <aside class="panel-sidebar">
+            <div class="perfil">
+                <img src="https://scontent.fntr6-1.fna.fbcdn.net/v/t39.30808-1/442418494_122150211518151876_4835030671183587211_n.jpg?stp=dst-jpg_s200x200&_nc_cat=100&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=13Ccwae3WR0Q7kNvgGJhbcD&_nc_ht=scontent.fntr6-1.fna&_nc_gid=AVJM_bjMiScJuQN16qEvg0-&oh=00_AYCNRdndbFb6MNhxqgbScqssDvynyR1TqnBBkubnuxs1Aw&oe=66EFE719" alt="Foto de perfil" class="perfil-img">
+                <p class="perfil-nombre">Lidiaxxxgg</p>
+            </div>
+            <ul>
+                <li><a href="#" onclick="cambiarSeccion('inicio')">Inicio</a></li>
+                <li><a href="#" onclick="cambiarSeccion('monetizacion')">Monetización</a></li>
+                <li><a href="#" onclick="cambiarSeccion('estadisticas')">Estadísticas</a></li>
+                <li><a href="#" onclick="cambiarSeccion('configuracion')">Configuración</a></li>
+            </ul>
+        </aside>
+
+        <!-- Sección principal -->
+        <main class="panel-main">
+            <header class="panel-header">
+                <h1>PlayVideo - Panel de Control</h1>
+            </header>
+
+            <div id="contenido">
+                <h2>Bienvenido al panel</h2>
+                <p>Aquí encontrarás las estadísticas y herramientas para gestionar tu canal en PlayVideo.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="edit.js"></script>
+</body>
+</html>
